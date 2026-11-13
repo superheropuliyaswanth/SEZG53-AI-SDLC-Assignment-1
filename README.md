@@ -175,3 +175,11 @@ python -m pytest tests/
 - [x] Final human acceptance decisions and residual risk justifications recorded.
 - [x] Zero API keys, credentials, or secrets committed.
 - [x] Self-contained execution instructions provided.
+
+---
+
+## 8. Academic Integrity & AI-Use Provenance Statement
+This repository complies with the BITS Pilani AI Policy for SEZG534:
+- **Acceptable AI Assistance Used**: Generative AI was used under human direction for drafting Spec Kit specification boilerplate, generating structural Pydantic validation schemas, scaffolding independent harness runner code, and executing self-healing repair cycles based on structured failure findings.
+- **Human Governance & Checkpoints**: All specifications, task lists, and test assertions were reviewed and approved by the student prior to generation. The test oracles and evaluation dataset were designed independently of the generated production code. All reflection answers, problem statements, and human ACCEPT/REJECT review decisions were reviewed, synthesized, and verified by the student.
+- **Zero Secrets Policy**: No API keys, credentials, or confidential environment variables are committed to this repository. All environment configuration relies on `.env.example`.
