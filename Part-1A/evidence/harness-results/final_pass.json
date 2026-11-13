@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-11-13T09:30:23.502724+00:00",
+  "application": "Part-1A Smart Todo & Task CLI",
+  "overall_status": "PASS",
+  "human_decision": "ACCEPT",
+  "gates": {
+    "lint_guard": {
+      "gate": "Syntax & Lint Guard",
+      "tool": "flake8",
+      "target": "src",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "0",
+      "stderr": ""
+    },
+    "security_guard": {
+      "gate": "Security / SAST Guard",
+      "tool": "bandit",
+      "target": "src",
+      "passed": true,
+      "exit_code": 0,
+      "high_medium_issues": [],
+      "summary": "0 critical security issues found."
+    },
+    "test_guard": {
+      "gate": "Unit & Contract Test Guard",
+      "tool": "pytest",
+      "target": "tests",
+      "passed": true,
+      "exit_code": 0,
+      "summary": {
+        "passed": 21,
+        "total": 21,
+        "collected": 21
+      },
+      "failed_tests": [],
+      "stdout": "   [ 23%]\ntests/test_service.py::test_storage_initializes_empty_file PASSED        [ 28%]\ntests/test_service.py::test_storage_atomic_save_and_reload PASSED        [ 33%]\ntests/test_service.py::test_storage_corrupted_backup PASSED              [ 38%]\ntests/test_service.py::test_create_task_valid PASSED                     [ 42%]\ntests/test_service.py::test_create_task_empty_title_fails PASSED         [ 47%]\ntests/test_service.py::test_create_task_title_too_long_fails PASSED      [ 52%]\ntests/test_service.py::test_tag_normalization PASSED                     [ 57%]\ntests/test_service.py::test_delete_task PASSED                           [ 61%]\ntests/test_service.py::test_delete_nonexistent_task PASSED               [ 66%]\ntests/test_service.py::test_valid_lifecycle_transitions PASSED           [ 71%]\ntests/test_service.py::test_reopen_completed_task PASSED                 [ 76%]\ntests/test_service.py::test_cancel_from_todo_and_in_progress PASSED      [ 80%]\ntests/test_service.py::test_illegal_status_transition_todo_to_completed PASSED [ 85%]\ntests/test_service.py::test_cancelled_task_is_terminal PASSED            [ 90%]\ntests/test_service.py::test_priority_sorting PASSED                      [ 95%]\ntests/test_service.py::test_tag_filtering PASSED                         [100%]\n\n--------------------------------- JSON report ---------------------------------\nreport saved to: .harness_test_report.json\n============================= 21 passed in 1.11s ==============================\n",
+      "stderr": ""
+    }
+  }
+}

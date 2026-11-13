@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-11-13T09:30:46.170958+00:00",
+  "application": "Part-1A Smart Todo & Task CLI",
+  "overall_status": "FAIL",
+  "human_decision": "REJECT",
+  "gates": {
+    "lint_guard": {
+      "gate": "Syntax & Lint Guard",
+      "tool": "flake8",
+      "target": "src",
+      "passed": false,
+      "exit_code": 1,
+      "stdout": "src\\service.py:8:1: F401 'os' imported but unused\n1",
+      "stderr": ""
+    },
+    "security_guard": {
+      "gate": "Security / SAST Guard",
+      "tool": "bandit",
+      "target": "src",
+      "passed": true,
+      "exit_code": 0,
+      "high_medium_issues": [],
+      "summary": "0 critical security issues found."
+    },
+    "test_guard": {
+      "gate": "Unit & Contract Test Guard",
+      "tool": "pytest",
+      "target": "tests",
+      "passed": false,
+      "exit_code": 1,
+      "summary": {
+        "passed": 17,
+        "failed": 4,
+        "total": 21,
+        "collected": 21
+      },
+      "failed_tests": [
+        {
+          "nodeid": "tests/test_cli.py::test_cli_lifecycle_and_transition_error",
+          "message": "assert 0 == 3"
+        },
+        {
+          "nodeid": "tests/test_service.py::test_tag_normalization",
+          "message": "AssertionError: assert ['  Urgent  '...kend', 'work'] == ['backend', 'urgent', 'work']\n  \n  At index 0 diff: '  Urgent  ' != 'backend'\n  Left contains one more item: 'work'\n  \n  Full diff: (-: missing in left side, +: extra in left side)\n    [\n  +     '  Urgent  ',...\n  \n  ...Full output truncated, use '-vv' to show"
+        },
+        {
+          "nodeid": "tests/test_service.py::test_illegal_status_transition_todo_to_completed",
+          "message": "Failed: DID NOT RAISE IllegalStateTransitionError"
+        },
+        {
+          "nodeid": "tests/test_service.py::test_cancelled_task_is_terminal",
+          "message": "Failed: DID NOT RAISE IllegalStateTransitionError"
+        }
+      ],
+      "stdout": "_illegal_status_transition_todo_to_completed(service):\n        \"\"\"Specification rule: Cannot transition directly from TODO to COMPLETED without IN_PROGRESS.\"\"\"\n        task = service.add_task(title=\"Skip in progress\")\n>       with pytest.raises(IllegalStateTransitionError):\nE       Failed: DID NOT RAISE IllegalStateTransitionError\n\ntests\\test_service.py:175: Failed\n_______________________ test_cancelled_task_is_terminal _______________________\n\nservice = <src.service.TaskService object at 0x00000230ACD9CEC0>\n\n    def test_cancelled_task_is_terminal(service):\n        \"\"\"Specification rule: CANCELLED is terminal; cannot restart or reopen.\"\"\"\n        task = service.add_task(title=\"Terminal test\")\n        service.cancel_task(task.id)\n    \n>       with pytest.raises(IllegalStateTransitionError):\nE       Failed: DID NOT RAISE IllegalStateTransitionError\n\ntests\\test_service.py:184: Failed\n--------------------------------- JSON report ---------------------------------\nreport saved to: .harness_test_report.json\n=========================== short test summary info ===========================\nFAILED tests/test_cli.py::test_cli_lifecycle_and_transition_error - assert 0 ...\nFAILED tests/test_service.py::test_tag_normalization - AssertionError: assert...\nFAILED tests/test_service.py::test_illegal_status_transition_todo_to_completed\nFAILED tests/test_service.py::test_cancelled_task_is_terminal - Failed: DID N...\n======================== 4 failed, 17 passed in 1.46s =========================\n",
+      "stderr": ""
+    }
+  }
+}
