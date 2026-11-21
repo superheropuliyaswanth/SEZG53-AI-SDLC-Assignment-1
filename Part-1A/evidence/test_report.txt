@@ -1,0 +1,25 @@
+Test Report (pytest) - 2026-11-21T14:10:13
+Passed: True
+Exit Code: 0
+   [ 23%]
+tests/test_service.py::test_storage_initializes_empty_file PASSED        [ 28%]
+tests/test_service.py::test_storage_atomic_save_and_reload PASSED        [ 33%]
+tests/test_service.py::test_storage_corrupted_backup PASSED              [ 38%]
+tests/test_service.py::test_create_task_valid PASSED                     [ 42%]
+tests/test_service.py::test_create_task_empty_title_fails PASSED         [ 47%]
+tests/test_service.py::test_create_task_title_too_long_fails PASSED      [ 52%]
+tests/test_service.py::test_tag_normalization PASSED                     [ 57%]
+tests/test_service.py::test_delete_task PASSED                           [ 61%]
+tests/test_service.py::test_delete_nonexistent_task PASSED               [ 66%]
+tests/test_service.py::test_valid_lifecycle_transitions PASSED           [ 71%]
+tests/test_service.py::test_reopen_completed_task PASSED                 [ 76%]
+tests/test_service.py::test_cancel_from_todo_and_in_progress PASSED      [ 80%]
+tests/test_service.py::test_illegal_status_transition_todo_to_completed PASSED [ 85%]
+tests/test_service.py::test_cancelled_task_is_terminal PASSED            [ 90%]
+tests/test_service.py::test_priority_sorting PASSED                      [ 95%]
+tests/test_service.py::test_tag_filtering PASSED                         [100%]
+
+--------------------------------- JSON report ---------------------------------
+report saved to: .harness_test_report.json
+============================= 21 passed in 0.96s ==============================
+

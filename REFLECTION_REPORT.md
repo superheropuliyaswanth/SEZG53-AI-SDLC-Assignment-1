@@ -7,11 +7,11 @@
 ## Student Details
 | Field | Details |
 |---|---|
-| **Name** | [Enter Full Name] |
-| **Student ID** | [Enter Student ID, e.g., 2024xx04xxx] |
-| **Email ID** | [Enter BITS Institutional Email, e.g., f2024xxxx@pilani.bits-pilani.ac.in] |
-| **GitHub Repository Link** | [Paste Public GitHub Repository URL here, e.g., https://github.com/your-username/AI-SDLC-Assignment-1] |
-| **Video Link** | [Paste Google Drive / OneDrive Video Link accessible to BITS email domain] |
+| **Name** | Yaswanth Pulikonda |
+| **Student ID** | 2026NS93064 |
+| **Email ID** | 2026NS93064@wilp.bits-pilani.ac.in |
+| **GitHub Repository Link** | https://github.com/superheropuliyaswanth/SEZG53-AI-SDLC-Assignment-1 |
+| **Video Link** | https://drive.google.com/file/d/your-video-link-here/view?usp=sharing |
 
 ---
 

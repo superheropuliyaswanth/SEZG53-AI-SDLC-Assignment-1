@@ -120,6 +120,24 @@ def run_evaluation_pipeline(dataset_path: str, evidence_output_path: str = None)
         "cases": case_results
     }
 
+    evidence_dir = os.path.join(PART1B_DIR, "evidence")
+    os.makedirs(evidence_dir, exist_ok=True)
+    summary_txt = (
+        f"Non-Deterministic Harness Summary (Part 1B)\n"
+        f"===========================================\n"
+        f"Time: {datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}\n"
+        f"Dataset Cases: {n}\n"
+        f"Threshold: {ACCEPTANCE_THRESHOLD}%\n\n"
+        f"Layer 1 (Structural): {avg_l1:.2f}%\n"
+        f"Layer 2 (Invariants): {avg_l2:.2f}%\n"
+        f"Layer 3 (Semantic):   {avg_l3:.2f}%\n\n"
+        f"AGGREGATE SCORE:      {aggregate_score:.2f}%\n"
+        f"RESULT:               {overall_status}\n"
+        f"DECISION:             {human_decision}\n"
+    )
+    with open(os.path.join(evidence_dir, "harness_summary.txt"), "w", encoding="utf-8") as f:
+        f.write(summary_txt)
+
     if evidence_output_path:
         os.makedirs(os.path.dirname(evidence_output_path), exist_ok=True)
         with open(evidence_output_path, "w", encoding="utf-8") as f:

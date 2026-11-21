@@ -1,0 +1,13 @@
+Non-Deterministic Harness Summary (Part 1B)
+===========================================
+Time: 2026-11-21T14:11:18
+Dataset Cases: 18
+Threshold: 85.0%
+
+Layer 1 (Structural): 100.00%
+Layer 2 (Invariants): 100.00%
+Layer 3 (Semantic):   100.00%
+
+AGGREGATE SCORE:      100.00%
+RESULT:               PASS
+DECISION:             ACCEPT
