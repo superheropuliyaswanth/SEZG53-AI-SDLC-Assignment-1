@@ -51,6 +51,14 @@ def main():
     # =========================================================================
     print_banner("PART 1A: DETERMINISTIC SMART TODO APPLICATION")
     
+    # Reset tasks.json so every demo run has clean task IDs 1, 2, 3
+    tasks_file = os.path.join(PART1A_DIR, "tasks.json")
+    if os.path.exists(tasks_file):
+        try:
+            os.remove(tasks_file)
+        except Exception:
+            pass
+
     step(1, "Create Tasks with Priority & Tags, then List All Tasks")
     run_cmd('python main.py add --title "Submit AI SDLC Assignment" --priority HIGH --tags "bits,academic"', cwd=PART1A_DIR)
     run_cmd('python main.py add --title "Record Demo Video" --priority HIGH --tags "bits,video"', cwd=PART1A_DIR)
@@ -63,7 +71,7 @@ def main():
     print("\n--- Sorting by Priority (HIGH > MEDIUM > LOW) ---")
     run_cmd('python main.py list --sort-priority', cwd=PART1A_DIR)
 
-    step(3, "Demonstrate Lifecycle State Transitions (TODO -> IN_PROGRESS -> COMPLETED -> TODO)")
+    step(3, "Demonstrate Lifecycle State Transitions (TODO -> IN_PROGRESS -> COMPLETED -> TODO -> CANCELLED)")
     run_cmd('python main.py start 1', cwd=PART1A_DIR)
     run_cmd('python main.py complete 1', cwd=PART1A_DIR)
     run_cmd('python main.py reopen 1', cwd=PART1A_DIR)
