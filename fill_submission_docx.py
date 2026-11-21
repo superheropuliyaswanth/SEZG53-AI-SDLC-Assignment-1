@@ -82,7 +82,7 @@ p1b_content = (
     "language model behaviors (such as relative time offsets, varying phrasing, and diverse JSON field orderings) deterministically. "
     "The application implements a dual-mode engine: an offline zero-dependency rule engine for grading environments, and live Google "
     "Gemini API connectivity via .env. The expected outcome is evaluated via an automated 3-layer evaluation harness across 18 diverse "
-    "test cases (structural schema validation, invariant rule checking, and semantic token overlap) achieving an overall pass rate above 85%."
+    "test cases (structural schema validation, invariant rule checking, and semantic token overlap) achieving an overall pass rate of 92.57% (structural: 100.0%, property: 86.36%, semantic: 93.41%, threshold >= 85.0%)."
 )
 
 reflections = {
@@ -130,7 +130,7 @@ reflections = {
         "'minutes'/'hours' were partitioned into snooze intervals, and prompts with missing task references correctly triggered action = 'CLARIFY' "
         "with an explicit question.\n\n"
         "Verification: Re-running harness/evaluation_runner.py confirmed TC-14 passed Layer 1, Layer 2, and Layer 3, bringing the total suite score "
-        "from 73.9% to 100.0% across all 18 cases without relaxing any invariant constraints."
+        "from 73.9% to 92.57% across all 22 cases (structural: 100.0%, property: 86.36%, semantic: 93.41%) without relaxing any invariant constraints."
     ),
     5: (
         "Residual Risk Identified: Despite achieving 100% automated harness PASS on both parts, a critical residual risk remains in Part 1B regarding "
