@@ -58,3 +58,54 @@ def test_cli_not_found(cli_env, capsys):
     assert ret == 2
     err = capsys.readouterr().err
     assert "not found" in err
+
+
+def test_cli_list_filter_by_tag(cli_env, capsys):
+    main(["--file", cli_env, "add", "--title", "Work Task", "--tags", "work,urgent"])
+    main(["--file", cli_env, "add", "--title", "Personal Task", "--tags", "personal"])
+    capsys.readouterr()  # flush output buffer
+
+    ret = main(["--file", cli_env, "list", "--tag", "work"])
+    assert ret == 0
+    captured = capsys.readouterr()
+    tasks = json.loads(captured.out)
+    assert len(tasks) == 1
+    assert tasks[0]["title"] == "Work Task"
+
+
+def test_cli_list_sort_by_priority(cli_env, capsys):
+    main(["--file", cli_env, "add", "--title", "Low Task", "--priority", "LOW"])
+    main(["--file", cli_env, "add", "--title", "High Task", "--priority", "HIGH"])
+    main(["--file", cli_env, "add", "--title", "Med Task", "--priority", "MEDIUM"])
+    capsys.readouterr()
+
+    ret = main(["--file", cli_env, "list", "--sort-priority"])
+    assert ret == 0
+    captured = capsys.readouterr()
+    tasks = json.loads(captured.out)
+    assert len(tasks) == 3
+    assert tasks[0]["priority"] == "HIGH"
+    assert tasks[1]["priority"] == "MEDIUM"
+    assert tasks[2]["priority"] == "LOW"
+
+
+def test_cli_delete_and_cancel_lifecycle(cli_env, capsys):
+    main(["--file", cli_env, "add", "--title", "Task to Cancel"])
+    main(["--file", cli_env, "add", "--title", "Task to Delete"])
+    capsys.readouterr()
+
+    # Cancel task 1
+    ret_cancel = main(["--file", cli_env, "cancel", "1"])
+    assert ret_cancel == 0
+    out_cancel = capsys.readouterr().out
+    assert "cancelled" in out_cancel.lower()
+
+    # Delete task 2
+    ret_del = main(["--file", cli_env, "delete", "2"])
+    assert ret_del == 0
+    out_del = capsys.readouterr().out
+    assert "deleted" in out_del.lower()
+
+    # Verify task 2 is gone
+    ret_get = main(["--file", cli_env, "get", "2"])
+    assert ret_get == 2

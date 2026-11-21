@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-21T08:40:20.487506+00:00",
+  "timestamp": "2026-11-21T08:57:37.939984+00:00",
   "application": "Part-1A Smart Todo & Task CLI",
   "overall_status": "PASS",
   "human_decision": "ACCEPT",
@@ -29,12 +29,12 @@
       "passed": true,
       "exit_code": 0,
       "summary": {
-        "passed": 21,
-        "total": 21,
-        "collected": 21
+        "passed": 24,
+        "total": 24,
+        "collected": 24
       },
       "failed_tests": [],
-      "stdout": "   [ 23%]\ntests/test_service.py::test_storage_initializes_empty_file PASSED        [ 28%]\ntests/test_service.py::test_storage_atomic_save_and_reload PASSED        [ 33%]\ntests/test_service.py::test_storage_corrupted_backup PASSED              [ 38%]\ntests/test_service.py::test_create_task_valid PASSED                     [ 42%]\ntests/test_service.py::test_create_task_empty_title_fails PASSED         [ 47%]\ntests/test_service.py::test_create_task_title_too_long_fails PASSED      [ 52%]\ntests/test_service.py::test_tag_normalization PASSED                     [ 57%]\ntests/test_service.py::test_delete_task PASSED                           [ 61%]\ntests/test_service.py::test_delete_nonexistent_task PASSED               [ 66%]\ntests/test_service.py::test_valid_lifecycle_transitions PASSED           [ 71%]\ntests/test_service.py::test_reopen_completed_task PASSED                 [ 76%]\ntests/test_service.py::test_cancel_from_todo_and_in_progress PASSED      [ 80%]\ntests/test_service.py::test_illegal_status_transition_todo_to_completed PASSED [ 85%]\ntests/test_service.py::test_cancelled_task_is_terminal PASSED            [ 90%]\ntests/test_service.py::test_priority_sorting PASSED                      [ 95%]\ntests/test_service.py::test_tag_filtering PASSED                         [100%]\n\n--------------------------------- JSON report ---------------------------------\nreport saved to: .harness_test_report.json\n============================= 21 passed in 0.96s ==============================\n",
+      "stdout": "   [ 33%]\ntests/test_service.py::test_storage_initializes_empty_file PASSED        [ 37%]\ntests/test_service.py::test_storage_atomic_save_and_reload PASSED        [ 41%]\ntests/test_service.py::test_storage_corrupted_backup PASSED              [ 45%]\ntests/test_service.py::test_create_task_valid PASSED                     [ 50%]\ntests/test_service.py::test_create_task_empty_title_fails PASSED         [ 54%]\ntests/test_service.py::test_create_task_title_too_long_fails PASSED      [ 58%]\ntests/test_service.py::test_tag_normalization PASSED                     [ 62%]\ntests/test_service.py::test_delete_task PASSED                           [ 66%]\ntests/test_service.py::test_delete_nonexistent_task PASSED               [ 70%]\ntests/test_service.py::test_valid_lifecycle_transitions PASSED           [ 75%]\ntests/test_service.py::test_reopen_completed_task PASSED                 [ 79%]\ntests/test_service.py::test_cancel_from_todo_and_in_progress PASSED      [ 83%]\ntests/test_service.py::test_illegal_status_transition_todo_to_completed PASSED [ 87%]\ntests/test_service.py::test_cancelled_task_is_terminal PASSED            [ 91%]\ntests/test_service.py::test_priority_sorting PASSED                      [ 95%]\ntests/test_service.py::test_tag_filtering PASSED                         [100%]\n\n--------------------------------- JSON report ---------------------------------\nreport saved to: .harness_test_report.json\n============================= 24 passed in 1.14s ==============================\n",
       "stderr": ""
     }
   }
