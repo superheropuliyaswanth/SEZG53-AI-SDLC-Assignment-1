@@ -8,11 +8,12 @@ REFERENCE_BASELINE = datetime(2026, 11, 13, 14, 48, 0, tzinfo=timezone.utc)
 
 # Safety Guardrail RegExes
 PROMPT_INJECTION_PATTERNS = [
-    r"ignore (all )?previous instructions",
-    r"dump (your )?(internal )?prompt",
-    r"system instructions",
+    r"ignore (all )?previous (instructions|rules|prompts)",
+    r"(dump|reveal) (all |your |internal )?(prompt|instructions|(api )?keys|passwords)",
+    r"system (instructions|override)",
     r"developer mode",
     r"reveal (api )?keys",
+    r"dump (api )?keys",
     r"bypass (guardrails|safety)"
 ]
 
